@@ -1,548 +1,557 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="The Redefine Team">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+        Theme Redefine
+    </title>
+    
 <link rel="stylesheet" href="/css/style.css">
 
-  
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/assets/fonts.css">
 
-  
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+        <div class="home-banner-container flex-center">
+    <div class="content flex-center">
+        <div class="description fade-in-down-animation" >
+          Theme Redefine 
+          
+            <p><i id="subtitle"></i></p>
+          
+        </div>
+        
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+</div>
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content has-home-banner">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                <h1>
+                Theme Redefine
+                </h1>
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="active" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="active" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-博客发布测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/04/04/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2023-04-03T17:03:10.000Z" itemprop="datePublished">2023-04-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+                <div class="home-sidebar-container fade-in-down-animation">
+    <div class="sticky-container">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/04/04/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/">博客发布测试</a>
-    </h1>
-  
+        <div class="sidebar-content" >
+            <div class="avatar">
+                <img src="/images/redefine-avatar.svg">
+            </div>
+            <div class="author">
+                <div class="name">The Redefine Team</div>
+                
+                    <div class="label"></div>
+                
+            </div>
+            <div class="statistics">
+                <a class="item" href="/tags">
+                    <div class="number">1</div>
+                    <div class="label">Tags</div>
+                </a>
+                <a class="item" href="/categories">
+                    <div class="number">0</div>
+                    <div class="label">Category</div>
+                </a>
+                <a class="item" href="/archives">
+                    <div class="number">2</div>
+                    <div class="label">Posts</div>
+                </a>
+            </div>
+        </div>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="自学是门手艺"><a href="#自学是门手艺" class="headerlink" title="自学是门手艺"></a>自学是门手艺</h1><p>《自学是门手艺：没有自学能力的人没有未来》是2019年电子工业出版社出版的图书，作者是李笑来。</p>
-<p>他其实以如何学习python为主线将如何自学的，个人认为书中关于自学的理论很好，可以只阅读如何自学的部分。</p>
-<blockquote>
-<p>这是自学者的黄金时代， 没有什么是不能自学的</p>
-</blockquote>
-<h2 id="应对过早引用"><a href="#应对过早引用" class="headerlink" title="应对过早引用"></a>应对过早引用</h2><p>Forward References</p>
-<p>首先，要掌握一项重要的技能：</p>
-<blockquote>
-<p>读不懂也要读完，然后重复很多遍。</p>
-</blockquote>
-<p><strong>这是最重要的起点。</strong></p>
-<p>听起来简单，甚至有点莫名其妙，但以后你就会越来越深刻地体会到：这么简单的策略，有些人竟然不懂，并因此吃了很我很多亏。</p>
-<p>充满过早引用的知识结构，不可能是一遍就能读懂的。别说学习编程这种信息密度极高的、复杂且重要的知识获取过程，哪怕是一部好电影，也要多“刷”几遍才能彻底看懂。</p>
-<p>所以，从一开始就要做好将要重复很多遍的准备，从一开始就要做好第一次只能读懂个大概的准备。 古人说，“读书百遍，其义自见”。道理早就有了，只不过那时没有计算机术语可以借一那些没有过 “读书百遍” 经历的人，绝对会用，于是，这道理本身就成了 “过早引用” 以为这只不过是在 “忽悠”。</p>
-<p>有经验的读书者，在拿到一本书，开始自学某项技能的时候，会先翻翻目录 (Table ofContents），看看其中有没有自己完全没有接触过的概念，然后 翻翻术语表 (Glossary)看是否可以尽量理解，再看看素引 ( Index），根据页码提示直接翻到相关页面进一步查 在通读之前，他们还会翻翻书后的参考文献（Reference），了解这本书都引用了哪些书籍，弄不好还会顺手多买几本。</p>
-<p>这样做显然是老到的，其最大的好处是消解了大量的 “过早引用”，极大地降低了自己的理解负担。</p>
-<p>因此，第一遍阅读的正经手段是“囫囵吞枣“，“囫囵吞枣“地读完本来是个貶义词，但在当前这种特殊的情况下，它是最好的策略。那些只习惯于一上来就仔细认真的人，在这种情况下很吃亏。他们越仔细认真，就越容易被各种“过早引用”摘得灰心丧气，相应地，他们的挫败感就积累得越快，到最后，弄不好最先放弃的</p>
-<p>是他们失败的原因竟然是 “太仔细了”……</p>
-<p>对“园因吞枣地读完”正面一点的描述是“先为探索末知领域面一幅潦草的地图”。地图这东西，有总比没有好。虽说它最好是精确的，但即便是〝不精确的地图”，也比“完全没有地图”好一万倍，对吧？何况这地图总是可以不断校正的。世界上哪一幅地图不是经过一点一点地校正才变得今天这般精确的呢？</p>
-<p>读不懂也要读完，然后重复很多遍</p>
-<h2 id="磨练只字不差的能力"><a href="#磨练只字不差的能力" class="headerlink" title="磨练只字不差的能力"></a>磨练只字不差的能力</h2><p>通过阅读习得新技能，尤其是 “尽量只通过阅读习得新技能”，肯定与 “通过阅读获得 心灵愉悦”大不相同。</p>
-<p>读个段子、读本小说、读篇热搜文章，通常不需要“精读”一草草浏览已经足够，頂多在自己特别感头趣的地方放慢速度仔细看。但是，如若为了习得新技能而阅读，就要施展“只字不差地问读” 这项专门的技能了。</p>
-<p>“只字不差地阅读” 是所有自学能力强的人都会且都经常使用的技能。尤其当阅读一个重要概念的定义时，他们会这样做：定义中的每个字都是有用的，每个词的内涵和外延都是需要推敲的一它是什么，它不是什么，它的内延和外延都是什么，因此在使用的时候需要注意什么。</p>
-<p>有一个很有趣的現象：绝大多数自学能力差的人，会把一切文字都当成小说，随便看看，粗略看看……不知你有没有注意到，有些人在看电影的时候会错过绝大多数细节，但这好像不会使他们的观影体验有所降低，而且，他们能使用自己大脑里的那些“醉片”拼接出一个 “完路的故事”一通常是“另一个貌似完整的放事”。于是，当你和他们讨论一部电影的时候，你会觉得，你们好像看的不是同一部电影。</p>
-<p>为什么说“只字不差地阅读” 是一项专门的技能呢？你自己试过就知道了。明明你已经刻意让自己慢下来，也刻意揣摩了每个字、每个词的含义，甚至为了正确地理解做了很多笔记，可是，当你再一次“只字不差地阅读〞 的时候，经常会发现自己竞然有若干处遗漏！对，这就是一种需要多次练习、长期训练才能真正掌握的技能，绝对不像听起来那么简单。千是，在问读第二道、第三遍时，就必须施展“只字不差地问读”这项专门的技能了。只此一点，你就已然与众不同了。</p>
-<p>磨练只字不差的能力，逐字逐句读一些东西</p>
-<h2 id="好的记忆力"><a href="#好的记忆力" class="headerlink" title="好的记忆力"></a>好的记忆力</h2><p><strong>〝就算读不懂也要读完”的更高境界是“就算不明白也要先记住”</strong></p>
-<p>人们普通讨厌死记硬背。不过，说实话，这有些片面。虽然确实有一些擅长死记硬背为什么都不会的人，但更多拥有强大记忆力的人实际上是博闻强识的。</p>
-<p>面对 “过早引用” 常见的知识领城，好的记忆力是一个超强加分项。记不清、记不住甚至千脆忘了是自学过程中最耽误事的缺点—当 “过早引用的知识点” 存在时更是如此。然而，很多人并没有意识到，记忆力也是一门手艺，并且是一门在任何时候都可以通过刻意练习而提高的手艺。更为重要的是，记忆力这个东西，有一百种方法去弥补。</p>
-<p>最明显、最简单的办法就是 “好记性不如烂笔头”。所以，在绝大多数情况下，所谓 “记不清、记不住甚至千脆忘了”，都只不过是懒的结果。还有一个简单实用的方法能够提高对有效知识的记忆力，就是下面要讲的 “整理、归纳总结”一反复整理、归纳、总结，记不住才怪呢！</p>
-<p>〝就算读不懂也要读完”的更高境界是“就算不明白也要先记住”</p>
-<h2 id="尽快开始整理、归纳、总结"><a href="#尽快开始整理、归纳、总结" class="headerlink" title="尽快开始整理、归纳、总结"></a>尽快开始整理、归纳、总结</h2><p>于是，作为读者，在第一過例囵吞枣地读完之后，马上就要开始总结、归纳、整理、组 织关键知识点。</p>
-<p>自己动手完成这些工作，是所谓 “学霸”的特点。他们只不过掌握了这样一个其他人认为并非必领掌握的简单技巧而己。他们一定有个本子，里面有各种列表、示意图、表格都是最常用的知识（概念）整理、组织、归纳工具，用法也简单极了。</p>
-<p>这个技巧非常简单。也许正因为它如此简单，才被很多人忽路。与“学霸”相对，大多数 “非学霸” 都有一模一样的糊弄自己的理由：反正有别人做好的，拿过来用就是了—-理直气壮。</p>
-<p>可实际上，自己动手做做就知道了。整理、归纳、组织，多次反复，是个相当麻烦的过程。 “非学霸”们自己不动手做的真正原因不过是嫌麻烦、麻烦，用一个字总结，就是–懒！可是，谁愿意承认自己懒呢？没有人愿意。于是，他们给自己找了很多冠冤堂皇的理由：“反正别人己经做好了，我为什么要再做一遍呢？”</p>
-<p>“这 世界就是由懒人推进的！” 久而久之，各种“爱面子”的说法完美地达成了自我欺骗的效果，最后连他们自己都信了！于是，他们身上多了一个明明存在却永远找不到的漏洞且不自知。</p>
-<p>自己亲手去归纳，总结</p>
-<h2 id="先关注使用，再研究原理"><a href="#先关注使用，再研究原理" class="headerlink" title="先关注使用，再研究原理"></a>先关注使用，再研究原理</h2><p>作为人类，我们原本是控长运用自己并不真正理解的物件、技能、原理、知识的。</p>
-<blockquote>
-<p>不管怎么样，先用起来。反正，即便把原理研究透了，也不可能马上做到，还需要 时间漫漫。</p>
-</blockquote>
-<p>用错了没关系，改正就好。用得不好没关系，用多了就会好。只要开始用，理解速度就 会提高——实践出真知，不是空话。</p>
-<p>有的时候，就是因为没有犯过错，所以不可能有机会改正，而是，就从未做对过。</p>
-<p>先用起来，再去谈原理</p>
-<h2 id="刻意思考"><a href="#刻意思考" class="headerlink" title="刻意思考"></a>刻意思考</h2><p>随着时间的推移，你会体会到它的威力：</p>
-<p>刻意思考在哪儿需要刻意练习。</p>
-<p>只不过是一句话，知道与不知道竟然会有天壤之别，也是神奇。</p>
-<p>刻意思考，就是所谓 “琢磨”。琢磨这件事，在无从下手的时候神秘无比，一旦开始则简单极了。让我们再看一个 “刻意思考”（即“琢磨”）的应用领域：</p>
-<p><strong>这东西能用在哪儿呢？</strong></p>
-<p>很多人学了却没怎么练，有一个很现实的原因——没什么地方用得上。例如，在学校里学习，有一个“近在眼前”的目的，就是通过考试。时间久了，就会形成一种思维一除了考试，学的东西还能用在哪儿？</p>
-<p><strong>所以，一旦我们启动了对某项技能的自学，在这个过程中，最具价值的刻意思考就是时时刻刻琢磨“这东西能用在哪儿呢”</strong></p>
-<p>但在更多的时候，需要我们花时间去琢磨，才能找到用处。 不过，找到用处，有时候真挺难的。人都一样，容易受到自己的眼界的限制。如果放爾 望去找不到用处，自然就不去用了，也不去学了．更别提练了。</p>
-<p>仔细想想吧：大部分在学校里帮老师干活的学生，就是在主动找活干</p>
-<p>找活干是应用所学的最有效的方式。因为有活千，所以就有问题需要解决，就有机会反 复攻关，在这个过程中以用带练。</p>
-<p>这样看来，有些人在很多事情上想反了。这些人常常取笑那些干活的人 “能者多劳”，甚至觉得他们有点俊。“能者多劳”这话没错，但 “劳者多能”可能更准确一—看，他们想反了吧？</p>
-<p>到最后，所有自学能力差的人的外部表现都差不多，起码包括这么一条：眼里没活。他们不仅不喜欢干活，甚至都没想过玩乐也是干活。有些人逢年过节就玩得疲魚不堪——从消耗或者成本的角度来看根本没区别，只不过那些通常都是没有产出的活而己。在最初想不出有什么用处的时候，可以退而求其次，看看别人想出什么用处没有。</p>
-<p>刻意去思考，这个东西还能用在哪？也是在练习归纳的能力</p>
-<h2 id="拆解"><a href="#拆解" class="headerlink" title="拆解"></a>拆解</h2><p>在学习编程的过程中，你会不由自主地学会一个重要的技能：</p>
-<p>拆解</p>
-<p>这么简单的两个字，在人生中的作用重大到不可想象。而且，它也的确是自学能力中最重要的底层能力之一</p>
-<p>自学的一个重要技巧就是：</p>
-<p>把那些很难完成的任务无限拆分，直至每个子任务都很小一一小到可操作为止</p>
-<p>例如，正则表达式是你必须学会的东西，但学会、学好真的不那么容易。一切技能都一样，在学会之前都是很难的，可在学会之后，用熟了，你就会“发现”，那其实没多难。那么，在刚开始的时候该怎么办？你需要运用拆分的本领。</p>
-<p>事实上，当你习惯这么做之后就会“发现”，</p>
-<p>一切自学任务其实都不难，只是繁杂程度不一而已。很生人最終自学失败，婴么是因为不維科拆分任务。要么仅仅是因为怕麻烦。还是那句话：人活者就挺麻烦的。</p>
-<p>分而治之，分解成可以解决的问题为止</p>
-<h2 id="刚需幻觉"><a href="#刚需幻觉" class="headerlink" title="刚需幻觉"></a>刚需幻觉</h2><p>我的结论是：</p>
-<p>很多人的自学能力是被 “自己的感觉” 给耽误的。</p>
-<p>每个人原本都有一定的自学能力，但最终，其中一些人的自学能力被“自己的感觉”干掉”了，直至全然失去。虽然他们也经常学习，但他们的学习模式大都是最初级的——模仿。</p>
-<p>为什么“模仿” 是学习行为中最初级的模式呢？</p>
-<p>第一，受自己的视野所限，模仿必须依赖模仿对象进行。 第二，模仿只能处理表里如一的简单知识和技能。一旦過到那些富有深意的知识和技能，模仿就无效了。如果硬着头皮模仿，结果只能是“东施效颦”。 在《把时间当作朋友》日中，我反复强调了一件事：</p>
-<p><strong>不要问学它有什么用，学就是了。</strong></p>
-<p>这原本是自学的最佳策略之一，也是自学的最根本策略，可是，自学能力不强的人，能听进这话的不多。即便我在书里举了那么名例子，即便他们在看书的时候可能有一点点认同我所讲的，可是，他们还是转瞬间就会回到原来的状态。无论過到什么自学机会，他们都会不由自主地问：“我学它有什么用啊？”如果在得到的答案中，那“用处”对他们而言不是“刚需”，他们瞬间就会失去动力、放弃追求-——直至某一天，突然“发现”那竟然是“刚需”⋯…他们只好临时抱佛脚。人们总希望与想要追求的东西形影相随，有谁会对已经放弃的东西念念不忘呢？</p>
-<p>于是，下一次，他们还是会作出 “预算不足”的判断。最终失去自学能力的人，都是因为对 “刚需”的判断失误了。这就是我在这里要讲的 刚需幻觉。</p>
-<p><strong>一项技能到底是不是“刚需”，在掌握它之前，我们都无法判断，因此，在面对新技能的时候，“感觉那并非刚需”肯定是幻觉。只有真正掌握一项技能，它才会“变”成“刚需”；一旦掌握了菜项技能，它就只能是“刚需”——这样的幻觉非常坑人。</strong></p>
-<p><strong>怎样做才能不被刚需幻觉所迷恐、所限制呢？</strong></p>
-<p>首先，基础策路是深刻理解这个现象及其解释： 对任何一项技能来说，</p>
-<p>“刚需”是自学的结果，而不是自学的原因。</p>
-<p>用是否为 “刚需” 作为自己是否开始学习的理由，注定会吃亏，因为这样做的下场肯定就是“被刚需幻觉所迷惑、所限制”其次，也是更为重要的一个策略是：</p>
-<blockquote>
-<p>做一个自驱动的人，而非被外部驱动的被动的人。</p>
-</blockquote>
-<p>这是一个越早建立越好的习惯。有些人终生都是被动者，终生都只被外界驱动，所以，他们会在某一时刻 “发现”某项技能是 “刚需”，然后去学。然而，非常可惜却肯定会发生的是：每当这时，他们的 “预算” 都会捉襟见肘。</p>
-<p><strong>一项技能到底是不是“刚需”，在掌握它之前，我们都无法判断，因此，在面对新技能的时候，“感觉那并非刚需”肯定是幻觉。只有真正掌握一项技能，它才会“变”成“刚需”；一旦掌握了菜项技能，它就只能是“刚需”——这样的幻觉非常坑人。</strong></p>
-<h2 id="全面—自学的境界"><a href="#全面—自学的境界" class="headerlink" title="全面—自学的境界"></a>全面—自学的境界</h2><p>把自学当作一门手艺，把所有的技能都当作手艺，就相对容易理解了：</p>
-<p>全面，是拿握一门手艺的基本。</p>
-<p>要想达到全面，当然要草时间。所以，关于 “混”与“不混”，我们有了更深刻却又更朴素的认识：</p>
-<p>所谓 “不混时间”，无非是刻意练习、追求全面。正因如此，几乎所有的自学高手都懂得这个道理：</p>
-<p><strong>绝对不能只读第一本书。</strong></p>
-<p>总有一天你会明白，“学会”和“学好”之间的所有差异，无非是全面程度的差异。</p>
-<p>翻译一下. <strong>“学好” 竟然如此简单：多读几本书。狠一点，就是多读很多本书。</strong></p>
-<p>到最后，这种习惯会渗透到生活中。例如，我在過到好歌的时候，总要去找那首歌的各个版本一—首唱者可能有很多个版本（录音版、现场版、不同年份的版本等），其他演唱者还可能有很多个翻唱版本。电影也一样，不仅要看原版，若有翻拍版本，我也一定会看-对比一部电影的原版和不同的翻拍版本，是一件特别好玩的事。</p>
-<p>甚至，到最后，你在做东西的时候都会顺手多做几个版本。我的这本书，己经有印刷版和电子版了，到最后，还会有一个产品版——这基本上尚无其他作者做到。</p>
-<p>提高所学知识和技能的“全面程度” 有个最狠的方法一—说出来不惊人，但实际效果惊 到爆：</p>
-<p>教是最好的学习方法。</p>
-<p>这真的不是我的总结，人类很早就意识到这个现象了。孔老夫子在《礼记 。学记》里就“日”过 学然后知不足，救然后知困。知不足，然后能自反也；知困，然后能自强地。故日：救学相长也。</p>
-<p>孔子三十二代孙孔额达在解读《尚书•兑命》中的 “学学半” 时提到：】 学学半者，上学为救，下学者谓习也。</p>
-<p>许嘉璐先生川 在《未央续集》中提到这段解读的时候，讲了一个自己的例子：</p>
-<p>我当了五十年的救师，经常遇到这种情况：备好课了，上讲台了，讲着讲着，突然发現有的地方豌漏了，莱个宇的读音没有查，文京前后的還拜没有理清楚，下完课回去补款，下次就不会出現同样的情況了，这就是教学相长。</p>
-<h2 id="自学者的社交"><a href="#自学者的社交" class="headerlink" title="自学者的社交"></a>自学者的社交</h2><p>另外一个很自然的现象是：如果一个人能做出像样的东西，那么他身边聪明人的密度无 论如何都会比其他人高出很多。</p>
-<p>地球上有效社交密度最高的地方是 GitHub。有些程序员常常开玩笑说“GitHub 是全球最大的同性社交网站”。事实上他们不知道，不仅女性程序员的比例正在逐步提高，而且女性在科学上从未屈居二线四。 在 GitHub 上找到自己感兴趣的项目，为它贡献一己之力，用自己的工作赢得社区的认同_一这就是 GitHub上的社交方式。如果你做出了有意义的项目，就会有更多的人关注你;</p>
-<p>如果你的项目对很多人有用，那就不仅会有很多人关注你，而且会有很多人像当初的你一样 为这个项目做贡献-这就是程序员之间的有效社交。</p>
-<p>Gittub 成为地球上规模最大的有效社交网络是顾理成章的，因为用作品社交肯定是最 高效的所以，无论学什么，都要想办法尽快做出;自己的作品，而在把作品做出来的过程中，可以磨炼另外一个自学者不可或缺的能力和素质：完整。</p>
-<p>与之前提到的能力和素质州组合起来，就构成了自学者最基本的素养：</p>
-<blockquote>
-<p>学就学得全面。 做就做得完整。</p>
-</blockquote>
-<p>无论多小的作品，都会让创作者感受到 “单一技能的必然无效性”</p>
-<p>你试试就知道了。</p>
-<p>哪怕做一个静态网站，你都会发现，仅仅学会 HTML 和css 是不够的，因为在将网站部署到远程服务器的时候，你无论如何都得学学 Linux 的基本操作。已然具备了 自学者基本素养的你，自然会想办法“全面掌握”，而不是糊弄一下。</p>
-<p>给自己足够的时间去学：在充足的“预算”之下耐心地练；不断找活于，以用代练：最重要的是，无论大小，一定要尽快尝试做出国于自己的完整作品。只有这样，你才能成为一个值得交往的人，</p>
-<p>其他用自学这门手艺习得的手艺是否达到了 “精湛” 的程度，基本上都可以用“是否做出了像样的作品”来衡量。</p>
-<p>硅谷有一家著名的孵化器，叫作 Y-Combinator，现在的掌门人是一个很年轻的人Samuel H. Altman。他在那篇著名的文章 Adrice for ambitious 19 year olds”l中提出了一个精彩的建议，</p>
-<p>No matter what you choose, build stuff and be around smart people. 无论你选择了什么，都要造出东西来，并要与聪明人打交道。</p>
-<p>对 “聪明人”这个概念，我和他的看法并不一致。在我看来，尽管有好作品的人都很聪 明，但我的观点还是一那不是靠天分和智商，那分明是靠有效积累a，</p>
-<p><strong>我最看重的个人品质之一就是有没有像样的作品。</strong></p>
-<p>在人群中，能拿出完整作品的人并不多一一少数人有自己的作品，更少数的人有好的作品，只有极少数的人能拿出传世的作品。于是，跟有像样作品的人打交道，总是非常值得的。而且，因为他们都是思考非常透彻的人，通常沟通能力极强，所以，和他们打交道的过程是非常容易的。即便是沟通中貌似费劲的那一小部分，事实上也不是难以沟通，而是他们简单、朴实而已。</p>
-<p>我甚至经常建议我的合伙人们，在招人的时候把这一点作为最靠谱的判断依据，吹牛，给我看看你的作品。这个原则可以一下子过滤掉儿乎所有的不合格者。</p>
-<p>要有自己的作品，好坏交给世界去评定</p>
-<h2 id="自学者的黄金时代"><a href="#自学者的黄金时代" class="headerlink" title="自学者的黄金时代"></a>自学者的黄金时代</h2><p>在人类历史上，自学者从未像今天这样幸福。</p>
-<p>在古代，拜师学艺是很难的事情。首先，真正的好老师确实难寻。其次，高手没空当老师。再次，肯收徒授艺的老师，时间和精力总是极其有限。最后，更为重要的是，那时候也真的没有自学的条件一根本就没有称得上“文献”的东西可供阅读或检素。那时，很多重要信息甚至只存在于某些人的大脑中。就算它们被落实成文字资料，数量也是相当有限的，而且散落甚至深藏于各处——就算凑齐了，也没有 Googleo.</p>
-<p>对，最关键的是：那时候没有 Google。</p>
-<p>今天的互联网，已经不再是二十多年前刚刚出现的那个 “激进而简陋” 的东西了。经过多年的发展，互联网上的内容已经构成了真正意义上的“全球唯一通用图书馆”，而针对它的检素工具中最好的，当然是 Google。</p>
-<p>因此，今天，自学者在真正意义上处于一个黄金时代-没有什么是不能自学的。请注意我的措辞，在这句话前面，甚至不用加上 “几乎”这样的限定词以示准确一一你想学什么，就能学什么，而不是拜了师才能学艺。</p>
-<p>今天的你一一无论想学什么，都可以去问 Google；无论在学习中週到什么问题，都可以直接问 Google。直接问 Google，效率通常比向他人提问高得多。Google 就是这样，你越用，就越离不开它。</p>
-<p>其实，很多人并不真正懂得如何用好 Google，可就连这个问题 Google 也自己能解答。</p>
-<p>一定要用google，如果你还没开始，那就从下一次搜索开始用起来，google的网页排名算法不是花架子，是真的有用</p>
-<h1 id="如何成为优秀沟通者-from-李笑来"><a href="#如何成为优秀沟通者-from-李笑来" class="headerlink" title="如何成为优秀沟通者 from 李笑来"></a>如何成为优秀沟通者 from 李笑来</h1><p>一般认为，“手艺人” 的普遍特征之一就是缺乏沟通能力，或者沟通能力差 —— 也许是因为平时把所有的时间精力都投入到磨练手艺上去了罢。</p>
-<p>但这肯定不是最主要的原因。你看手艺不怎么样的人沟通能力更差；手艺顶级的人却常常反过来沟通能力很强很强…… 为什么呢？</p>
-<p>所以，最核心的理由，应该是一个人最基本的选择而已：</p>
-<blockquote>
-<p>看一个人是否重视沟通能力。</p>
-</blockquote>
-<p>因为若是一个人重视沟通能力，那么，他就自然而然地会想办法去进行刻意练习。如果他本人并不重视沟通能力，那么，自然就没有任何时间精力投入在这方面，结果就非常自然而然了。</p>
-<p>非常遗憾，绝大多数人对沟通能力的重视远远不够 —— 他们也不是不重视，就是重视的程度实际上太差了。别说双向沟通了，即便是单向沟通，向别人问个问题这么 “简单” 的事，其实也需要 “学” 与 “练” —— <a target="_blank" rel="noopener" href="https://github.com/lsmtree/Annual-summary/blob/main/Part.3.G.the-golden-age-and-google.md">之前提到过</a>的文章，事实上一定有读者并没有去认真阅读：</p>
-<blockquote>
-<p>…… 作为一个有素养的自学者，有一篇文章必须精读：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/selfteaching/How-To-Ask-Questions-The-Smart-Way">How To Ask Questions The Smart Way</a></p>
-</blockquote>
-<p>这里还有 John Gordon（王渊源）同学录制的英文朗读版：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/selfteaching/How-To-Ask-Questions-The-Smart-Way">https://github.com/selfteaching/How-To-Ask-Questions-The-Smart-Way</a></p>
-</blockquote>
-</blockquote>
-<p>经过多次尝试就知道了，连 “描述清楚自己的问题” 都不是一件很容易做得足够清楚、足够好的事呢。</p>
-<p>对沟通能力进行 “刻意练习” 的最佳方式是什么呢？其实还是<a target="_blank" rel="noopener" href="https://github.com/lsmtree/Annual-summary/blob/main/Part.3.E.to-be-thorough.md">你已经知道的</a>：</p>
-<blockquote>
-<p><strong>教是最好的学习方法</strong></p>
-</blockquote>
-<p>讲课、写教程，甚至写书 —— 这是最高效的提升沟通能力的刻意练习手段。</p>
-<p>人们常说，“杀鸡焉用宰牛刀”…… 在我看来，既然如此，备上一把宰牛刀挺好的，平时宰牛就用宰牛刀，备不住哪天需要杀鸡的时候，并不需要非得换把刀才行，依然可以用那把宰牛刀……</p>
-<p>讲演能力、写作能力，其实同样也是手艺而已，但它们也确实是很必要的手艺。尤其是，具备这两项手艺的人，在现在这样的社会里收入一定不差，不信你就观察一下身边的世界、你的眼界可以触达的人群。</p>
-<p>这两个手艺若比作宰牛刀的话，则日常生活里与单人沟通，只不过是杀鸡而已 —— 哈，这个类比真是不能说给沟通对象听，实在有太大的误会可能性。然而，说正经的，其实这也是为什么 “教师” 这个行业的人有不少能够跑出来成为优秀创业者、优秀投资人的原因之一。</p>
-<p>当然，绝大多数连一门手艺都没有弄明白的初学者，阅读以下内容时，会觉得 “与当前的自己没关系”…… 不过，请注意，这绝对是 “<a target="_blank" rel="noopener" href="https://github.com/lsmtree/Annual-summary/blob/main/Part.3.D.indispensable-illusion.md">刚需幻觉</a>”，千万不要被它误导。</p>
-<p>已经说了无数遍了：绝大多数手艺都是这样的：</p>
-<blockquote>
-<p>原理很简单，精湛与否取决于重复的次数。</p>
-</blockquote>
-<p>哼，这句话不就是卖油翁说的吗？“无他，唯手熟尔” —— 是哦，卖油翁如是说。</p>
-<p>以下，让我从入门开始讲起，而后步入进阶，最后到达高级……</p>
-<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="内容第一"><a href="#内容第一" class="headerlink" title="内容第一"></a>内容第一</h3><p>无论是平日里讲话、还是台上讲课，抑或是写篇文章、写本书，永远都是内容第一，至于形式，并非不重要，但绝对不能喧宾夺主。</p>
-<p>通常，我们用 “干货” 来描述内容的重要性。第一步就是准备干货，至于修辞啊、笑点啊、酷炫幻灯片啊等等等等，都必须是次要的，否则就是喧宾夺主。干货不够好，其它的做得越多、越好，最终越是容易露怯 —— 这很可怕。</p>
-<p>所以，在你还没有确定自己值得讲、别人值得听的内容的情况下，就去学习如何制作幻灯片，在我看来完全是浪费时间。</p>
-<p>使用工具的技巧之一，就是用最朴素的方法使用最好的工具，这样成本最低效果最好。所以，我在讲课、讲演的时候，通常就只用最简单的模版，空白、单色背景那种，而后一页里只写一句话 —— 就是接下来三五分钟里我要讲的重点（甚至干脆只是标题）…… 这样的幻灯片，我只需要几分钟就能做完。而后，我的所有时间精力都放在精心准备内容上去了。高效、低成本。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lsmtree/Annual-summary/blob/main/Part.3.H.prevent-focus-drifting.md">做事不分轻重</a>，这不对。</p>
-<h3 id="内容质量"><a href="#内容质量" class="headerlink" title="内容质量"></a>内容质量</h3><p>内容第一，就决定了另外一个事实：</p>
-<blockquote>
-<p>不要讲或写你并不擅长的事。</p>
-</blockquote>
-<p>换句话说，不要分享你做得不够好、做得不够精的手艺。讲课也好、写书也罢，都是分享。分享的意思是说，你有别人想要的东西 —— 别人想要的，就是他们学不好、做不好的东西…… 若是你自己手艺不强，手艺不精，其实就没什么可分享的，就算你想 “分享”，别人也不要。</p>
-<p>你值得讲，别人值得听的，一定是你做得比别人更好的东西，就这么简单。</p>
-<p>所以，在自己磨练手艺的时候，可以同时磨练沟通能力；然而，一旦需要讲，需要写，那么就说明，你自己确信自己做得比别人更好、比别人更精，所以，你值得讲，所以，人家值得听。</p>
-<p>一旦你确定自己有值得讲、人家值得听的东西，那么，内容质量的第一要素已经完成了，接下来要注意哪些呢？只需要关注最重要的三个方面就可以了：</p>
-<blockquote>
-<ul>
-<li>重点突出</li>
-<li>例证生动</li>
-<li>消除歧义</li>
-</ul>
-</blockquote>
-<p>首先，“重点突出”，是最简单朴素、成本最低的 “优秀结构”。</p>
-<p>既然是沟通，就要了解对方。在绝大多数情况下，对方想要的才是重点。</p>
-<p>可问题在于，我们平日里面对单个人的时候都觉得 “了解对方很困难”，我们又如何判断 “一个群体” 呢？与很多人想象得相反，判断群体远比判断个体容易得多…… 因为你可以用粗暴分类，比如，你把听众或读者划分为 “小白” 和 “专家”，那你就知道了，你面对的群体中，更可能 “大部分是小白，小部分是专家”。于是，你就可以思考，“小白们最想知道的是什么？”，“专家们最重视的是什么？”，于是，你就可以在脑子里对所谓的 “重点” 有应对策略。</p>
-<p>再比如说，你可以 “粗暴” 地把群体分为友善者和刺儿头两种。有经验的老师，都会专门准备 “针对刺儿头” 的内容，因为，人群中永远存在刺儿头 —— 至少一个，所以，在现场，必须要有应对他们的策略。比如，当一个刺儿头说了一句蛮不讲理却引发哄堂大笑的话，你怎么办？每个人的策略不同，但你必须找到属于你的最佳策略。</p>
-<p>进而，在找到重点之后，紧接着必须要做到的一步就是 “例证生动”。寻找好例子，是需要很多时间精力的事情 —— 从来就没有任何 “信手拈来” 的生动例子。信手拈来，是读者或者听众的感觉而已，对你来说，肯定是举重若轻的 —— 你明明是在举重，却被认为 “如若举轻”。在第一部分，<a target="_blank" rel="noopener" href="https://github.com/lsmtree/Annual-summary/blob/main/Part.1.E.7.files.md">讲文件的那一章</a>里，我举了个 “我自己费尽心机找好例子” 的例子，相信你读过之后，一定有所感触。</p>
-<p>最后一步，就是在前两步都完成之后，反复确认一件事情，消除<strong>一切</strong>歧义。这是真功夫，因为这东西很难把自己关在屋子里自顾自练成。并且，每个人有自己的 “容易引发误解” 的特殊属性，大家各不相同 —— 于是，只能靠自己探索。</p>
-<p>无论如何都不能骂听众读者傻逼，他们的所有看起来傻逼的反应，都是你所说、你所写引发的 —— 这是百分之百清楚无误的事实。当年我写博客的时候，决不删除任何留言。其中最大的一个理由就是，无论那留言显得多么荒谬，甚至干脆是谩骂，都值得我认真思考：</p>
-<blockquote>
-<p>我到底说什么了？居然引来这种反应？！</p>
-</blockquote>
-<p>看多了，思考多了，你就有你自己的策略了。</p>
-<h3 id="内容组织"><a href="#内容组织" class="headerlink" title="内容组织"></a>内容组织</h3><p>只有一个重点的时候，其实并不需要组织；但若是有一个以上的重点，那么这些重点之间会产生逻辑关系：</p>
-<blockquote>
-<ul>
-<li>并列</li>
-<li>递进</li>
-<li>转折</li>
-</ul>
-</blockquote>
-<p>这是上中学的时候，所有人在语文课上都学习并掌握了的知识 —— 现在终于需要 “活学活用” 了。</p>
-<p>在讲演、讲课、写教程、写非小说类书籍的时候，最有效的组织方式竟然是最简单的，并且只有一个：</p>
-<blockquote>
-<p><strong>层层递进</strong></p>
-</blockquote>
-<p>你有两个重点需要分享，那么把更重要的那个重点放在后面；你有三个重点要分享，那么就把最重要的放在最后面…… 无论你有多少个重点，都按这种方式排列，准没错！</p>
-<p>并且，另外一个建议是：</p>
-<blockquote>
-<p><code>3</code> 是重点数量的极限</p>
-</blockquote>
-<p>如果你必须有 <code>11</code> 个重点，那怎么办？那就把它们分到最多 3 个分组中，比如，像当前文章这样，“入门”、“进阶”、“高级”……</p>
-<p>另外一个策略，是与 “递进” 的逻辑关系组合使用的 —— 你要区分针对你所谓的重点，对方的已知状态。大家都知道的，何必当作重点？于是，未知程度最高的，放在未知程度不那么高的重点后面。</p>
-<p>这都是听起来无比简单，甚至好像 “无需讲述” 的 “重点”，但若是你多观察一下周遭的世界，你就明白了，很多人可能并不是不知道这些方法，但不知道为什么，他们就是不去应用这么简单有效的方法，也是怪得很！</p>
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>当入门的手段都已经熟练了，就可以做很多所谓 “锦上添花” 的事情。锦上添花据说有很多种手段，比如，制造笑点啊，使用炫酷的幻灯片啊等等…… 但我只想给你讲一个学会了就够用，却也是最简单、最直接，然而又最有效的手段：</p>
-<blockquote>
-<p><strong>输送价值观</strong></p>
-</blockquote>
-<p>事实上，你可以把当前这本 “书” 当作一个巨大且又生动的例子：</p>
-<blockquote>
-<p>你把李笑来想象成一位在某个学校里为学生讲编程课的老师。那么，你就可以把当前这本书当作 “李笑来的讲义”…… 也许我和学生手里都拿着另外一本更著名的计算机专家所著的编程入门书籍，然而，我的讲义，就是按照我的顺序、我的内容编排来讲述的。</p>
-</blockquote>
-<p>事实上我在写这本书的时候，从某个层面上来看，真的写的就是 “Python 官方文档” 以及 “Python 官方教程” 的辅助讲义，写作目标如此，写作方式亦如是。</p>
-<p>那我做了什么最重要的事情呢？</p>
-<blockquote>
-<p>我向我的群体输送了我觉得更有意义的价值观：</p>
-<blockquote>
-<p>自学是门手艺……</p>
-</blockquote>
-</blockquote>
-<p>当年我在学校里讲英语课的时候，除了讲英语本身之外，我输送的价值观是：</p>
-<blockquote>
-<p>能管理好自己的时间的人，学英语学起来更容易……</p>
-</blockquote>
-<p>后来，这一部分单独被提取出来，在我离开那所学校之后，写成了长销书，《<a target="_blank" rel="noopener" href="https://github.com/xiaolai/time-as-a-friend">把时间当作朋友</a>》—— 你看，是一样的道理。</p>
-<p>而所谓的价值观，定义很简单：</p>
-<blockquote>
-<p>你的价值观，就是你认为什么比什么<strong>更重要</strong>。</p>
-</blockquote>
-<p>价值观可大可小。大到集体利益与个人利益之间的比较，小到自学中 “全面” 压倒一切…… 然而，这世界总有独立于任何人存在的 “客观的价值比较”，只不过，每个人的 “价值观” 是自己的 “观点”。而我们每个人都希望自己的观点尽量摆脱自己的主观，尽量靠近那个 “客观的价值比较”…… 而一旦我们确定自己比原来的自己，甚至相对于其他人更进一步的时候，就很可能值得认真分享。</p>
-<p>这个方法着实简单，然而却非常有效。这有点像什么呢？这有点像人家弹个吉他是 “蹦单音”，可你弹的却是 “曲调与和弦” 相辅相成的音乐…… 给你看一个 Youtube 上的《一生所爱》—— 这首曲子是我最喜欢的指弹版本 —— 这种弹法，不仅有旋律，还有和弦，并且还有打击乐器效果 “伴奏”：</p>
-<p>最初的时候，有个看起来很难以跨越的障碍：</p>
-<blockquote>
-<p>感觉总是需要为自己塑造权威感 —— 否则就害怕没人听、没人看、没人信……</p>
-</blockquote>
-<p>这是很多人掉进去的坑。刚开始的时候，自己就不是权威啊！无论怎么装神弄鬼，事实上就不是么！</p>
-<p>很多人没想明白，因为害怕没人听、害怕没人看、害怕没人信，所以就开始各种作弊，包括各种装神弄鬼，各种欺世盗名…… 这么做，暂时管用，长期来看，肯定是吃亏的。</p>
-<p>因为作弊其实并不难，装神弄鬼其实并不难，欺世盗名其实并不难 —— 真正难的是长期作弊…… 长期欺骗有多难呢？难到根本不可能的地步。尤其是在寿命越来越久的今天。《庄子》里说，“寿则多辱”，今天有了新解释 —— 大家都寿命很长，所以别骗人，因为早晚会露馅……</p>
-<p>花那么长时间作弊什么的，还不如花那么长时间磨练手艺，你想想看是不是这个道理？</p>
-<p>给你看一段视频，加州伯克利大学的 Brian Harvey 在课堂上告诉学生，“为什么不要作弊” 的真正原因：</p>
-<p>于是，千万别扭曲了自己，是什么样就是什么样，该怎么做就怎么做。而另外一件事是确定的：</p>
-<blockquote>
-<p>分享多了，就自然进步了……</p>
-</blockquote>
-<p>在求知的领域里，分享得越多，进步越快，且社交有效性提高得更多。</p>
-<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><p>无论什么手艺，大多数人都可以入门、少数人可以进阶…… 再往后，就通常被认为是个人 “造化” 了。</p>
-<p>可这所谓的 “造化” 究竟指的是什么呢？</p>
-<p>我觉得通过这本书，我可以向绝大多数普通人解释这个 “玄学词汇” 了……</p>
-<blockquote>
-<p>这里所谓的 “造化”，指的应该是一个人的 “融会贯通的能力” —— 有 “造化” 的人，不过是把大量其他领域里的技能、技巧、甚至手艺学来而后应用到自己的手艺之中……</p>
-</blockquote>
-<p>就这么简单。</p>
-<p>有个特别好玩的例子。</p>
-<p>现在大家已经熟悉了的吉他演奏中的 “指弹”（Percussive Guitar），可这种玩法在没有 Youtube 的时代里并不多见 —— 在我长大的年代里，甚至 “前所未闻”。不知道是谁，把打击乐器的手法融合到吉他演奏手法中去了，于是，在 Youtube 这样的视频工具出现之后，人们的 “见识” 成本降低了（过去也许要 “去西天取经才行”），很快就有人模仿，很快就有人更为擅长……</p>
-<p>有这种能力的人，普遍有两个特征：</p>
-<blockquote>
-<ul>
-<li>他们自学很多看起来不相干的手艺</li>
-<li>他们对自己的手艺充满尊重与热爱</li>
-</ul>
-</blockquote>
-<p>我也只能猜个大概。这其中的第二个特征，很可能是第一个特征的根源，因为他们对自己的手艺充满了尊重与热爱，所以，他们追求全面，他们刻意练习，他们还刻意思考…… 由此引发了对一切可能与自己的手艺相关的东西都感兴趣 —— 虽然在外界看来那两样东西可能全无联系。于是，他们利用已经在自己的手艺中练就的自学能力，不断自学新的东西，不断 “发现” 所谓的 “新大陆”，不断用他们的所见所闻回过来锤炼或更新自己的手艺……</p>
-<p>所以，弹钢琴或者弹吉他的也去学了打击乐器；讲课的人会去听相声专场，学习相声演员是如何抖包袱的；写书的人可能会像我琢磨 “取名” 的艺术 —— 甚至不惜去研究一下自己并不屑于相信的易经八卦；学会计的去研究了物理或者经济学；学编程的也去学了设计，学设计的也去学了编程；做前端的去学了后端，做后端的也学会了前端；做统计的学会了数据可视化…… 搞来搞去，计算机行业里有个著名的词汇诞生：全栈工程师。</p>
-<p>其实，所有精湛的手艺人，都是<strong>全栈</strong>，不信你就仔细观察一下。</p>
-<p>于是，所有在入门、进阶之后走得更远的手艺人，都明白且认同这个道理：</p>
-<blockquote>
-<p><strong>学无止境</strong></p>
-</blockquote>
-<p>于是，最后一个重要技巧，不仅仅是 “不断磨练当前的手艺”，还有就是<strong>不断向所有的手艺人学习</strong>。</p>
-<p>再进一步，技巧没用了…… 想再进一步，靠的是另外一个层次的东西 —— 那就是尊重与热爱。</p>
-<p>这么多年来，在互联网上我最喜爱的老师，是麻省理工大学的 Walter Lewin 教授。</p>
-<p>十多年前，MIT 出了一套 Open Course，在线的免费课程。授课老师绝大多数都是本校的著名教授 —— 在那么多课程里，我一下子就爱上了这位教授。建议你有时间把他的所有课程看完，虽然你可能觉得物理这东西你并不感兴趣 —— 可事实上，看完你就知道了，你只不过是运气不好，你从来没遇到过这么可爱牛逼的教授而已…… 在他身上，你可以学到无数，甚至是 “不可言说” 的技巧、秘密和手艺。</p>
-<p>关键在于，你一定会非常生动地、深刻地体会到他对物理、他对授课的<strong>尊重和热爱</strong>。看过之后，你一定会跟我有一样的慨叹：“是哦，**Love is the power.**”</p>
-<p>没有什么比 “热爱” 和 “尊重” 更为高级的了。就这样。</p>
-
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/04/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/" data-id="clg135fst0000c0vy80rs6uht" data-title="博客发布测试" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
+</div>
 
-    </footer>
-  </div>
-  
-</article>
+            
 
+            <div class="main-content">
 
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/04/04/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2023-04-03T16:54:28.234Z" itemprop="datePublished">2023-04-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/04/04/hello-world/">Hello World</a>
-    </h1>
-  
+            <li class="home-article-item">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+                
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+                <h3 class="home-article-title">
+                    <a href="/2023/04/04/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/">
+                        博客发布测试
+                    </a>
+                </h3>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+                <div class="home-article-content markdown-body">
+                    
+                        自学是门手艺《自学是门手艺：没有自学能力的人没有未来》是2019年电子工业出版社出版的图书，作者是李笑来。
+他其实以如何学习python为主线将如何自学的，个人认为书中关于自学的理论很好，可以只阅读如何自学的部分。
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+这是自学者的黄金时代， 没有什么...
+                    
+                </div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/04/hello-world/" data-id="clg12pa0c0000n4vy2aal4efq" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Tue Apr 04 2023 01:03:10 GMT+0800">
+                
+                    2023-04-04
+                
+            </span>
+        </span>
         
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/test/" style="font-size: 10px;">test</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/2023/04/04/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/">博客发布测试</a>
-          </li>
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/test/">test</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
         
-          <li>
-            <a href="/2023/04/04/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
     </div>
-  </div>
 
-  
-</aside>
+    <a href="/2023/04/04/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/">Read more<span class="seo-reader-text">博客发布测试</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
         
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/04/04/hello-world/">
+                        Hello World
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Tue Apr 04 2023 00:54:28 GMT+0800">
+                
+                    2023-04-04
+                
+            </span>
+        </span>
+        
+        
     </div>
-  </div>
+
+    <a href="/2023/04/04/hello-world/">Read more<span class="seo-reader-text">Hello World</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    <span class="page-number current">1</span>
+</div>
+
+    </div>
+</div>
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">The Redefine Team</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.0</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2022/8/17 11:45:14
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
 </footer>
+        </div>
+    </div>
+
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
     
 
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+</main>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/layouts/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
 
 
 
 
-
-  </div>
 </body>
 </html>
