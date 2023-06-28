@@ -19,18 +19,19 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="详解LSMTree先放着吧，后面空了写0-0">
+        <meta name="description" content="详解LSMTree2023&#x2F;06&#x2F;27：先放着吧，后面空了写0-0 2023&#x2F;06&#x2F;29：update: 来更新咯 ，太晚了，先写到这里吧，后面lsmtree的操作和性能优化估计得好久再更了0-0 0 数据库查询和存储的逻辑关联​		首先，LSMTree一般是在数据库中用来做索引的数据结构，在讨论数据库底层如何处理查询和存储时，有个前提的关联是:使用场景 →">
 <meta property="og:type" content="article">
 <meta property="og:title" content="详解LSMTree">
 <meta property="og:url" content="http://example.com/2023/06/27/%E8%AF%A6%E8%A7%A3LSMTree/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="详解LSMTree先放着吧，后面空了写0-0">
+<meta property="og:description" content="详解LSMTree2023&#x2F;06&#x2F;27：先放着吧，后面空了写0-0 2023&#x2F;06&#x2F;29：update: 来更新咯 ，太晚了，先写到这里吧，后面lsmtree的操作和性能优化估计得好久再更了0-0 0 数据库查询和存储的逻辑关联​		首先，LSMTree一般是在数据库中用来做索引的数据结构，在讨论数据库底层如何处理查询和存储时，有个前提的关联是:使用场景 →">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-06-27T14:38:28.000Z">
-<meta property="article:modified_time" content="2023-06-27T14:42:54.443Z">
+<meta property="article:modified_time" content="2023-06-28T17:25:53.532Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="DB">
+<meta property="article:tag" content="LSMTree">
 <meta name="twitter:card" content="summary">
     
     <!--- Icon Part-->
@@ -321,8 +322,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-06-27 22:42:54</span>
-            <span class="mobile">2023-06-27 22:42</span>
+            <span class="desktop">2023-06-29 01:25:53</span>
+            <span class="mobile">2023-06-29 01:25</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -356,6 +357,10 @@
                         | <a href="/tags/DB/">DB</a>&nbsp;
                     </li>
                 
+                    <li>
+                        | <a href="/tags/LSMTree/">LSMTree</a>&nbsp;
+                    </li>
+                
             </ul>
         </span>
     
@@ -372,7 +377,137 @@
             
 
             <div class="article-content markdown-body">
-                <h2 id="详解LSMTree"><a href="#详解LSMTree" class="headerlink" title="详解LSMTree"></a>详解LSMTree</h2><p>先放着吧，后面空了写0-0</p>
+                <h2 id="详解LSMTree"><a href="#详解LSMTree" class="headerlink" title="详解LSMTree"></a>详解LSMTree</h2><p><em>2023&#x2F;06&#x2F;27：先放着吧，后面空了写0-0</em></p>
+<p><em>2023&#x2F;06&#x2F;29：update: 来更新咯 ，太晚了，先写到这里吧，后面lsmtree的操作和性能优化估计得好久再更了0-0</em></p>
+<h3 id="0-数据库查询和存储的逻辑关联"><a href="#0-数据库查询和存储的逻辑关联" class="headerlink" title="0 数据库查询和存储的逻辑关联"></a>0 数据库查询和存储的逻辑关联</h3><p>​		首先，LSMTree一般是在数据库中用来做索引的数据结构，在讨论数据库底层如何处理查询和存储时，有个前提的关联是:使用场景 → 查询类型 → 存储格式。</p>
+<p>​		查询类型主要分为两大类：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>请求数量</th>
+<th>数据量</th>
+<th>瓶颈</th>
+<th>存储格式</th>
+<th>用户</th>
+<th>应用场景</th>
+<th>产品</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OLTP</td>
+<td>相对频繁，侧重在线交易</td>
+<td>总体和单次查询都相对较小</td>
+<td>Disk Seek</td>
+<td>多用行存</td>
+<td>比较普遍，常见应用</td>
+<td>银行交易</td>
+<td>MySQL</td>
+</tr>
+<tr>
+<td>OLAP</td>
+<td>相对频繁，侧重在线交易</td>
+<td>总体和单次查询都相对巨大</td>
+<td>Disk Bandwidth</td>
+<td>列存流行</td>
+<td>多为商业用户</td>
+<td>商业分析</td>
+<td>MySQL</td>
+</tr>
+</tbody></table>
+<p>​		其中，OLTP存储引擎又有两种类别：</p>
+<table>
+<thead>
+<tr>
+<th>流派</th>
+<th>主要特点</th>
+<th>基本思想</th>
+<th>应用代表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>log-structured 流</td>
+<td>只允许追加，所有修改都表现为文件的追加和文件整体增删</td>
+<td>变随机写为顺序写</td>
+<td>Bitcask、LevelDB、RocksDB、Cassandra、Lucene</td>
+</tr>
+<tr>
+<td>update-in-place 流</td>
+<td>以页（page）为粒度对磁盘数据进行修改</td>
+<td>面向页、查找树</td>
+<td>B 族树，所有主流关系型数据库和一些非关系型数据库</td>
+</tr>
+</tbody></table>
+<p>​		日志结构存储的最基本原理：</p>
+<ol>
+<li>set：在文件末尾追加一个 KV 对。</li>
+<li>get：匹配所有 Key，返回最后（也即最新）一条 KV 对中的 Value。</li>
+</ol>
+<p>​		可以看出：写很快，但是读需要全文逐行扫描，会慢很多。典型的以读换写。为了加快读，我们需要构建<strong>索引</strong>：一种允许基于某些字段查找的额外数据结构。</p>
+<p>​		索引从原数据中构建，只为加快查找。因此索引会耗费一定额外空间，和插入时间（每次插入要更新索引），即，重新以空间和写换读取。</p>
+<p>​		这便是数据库存储引擎设计和选择时最常见的<strong>权衡（trade off）</strong>：</p>
+<ol>
+<li><p>恰当的<strong>存储格式</strong>能加快写（日志结构），但是会让读取很慢；也可以加快读（查找树、B 族树），但会让写入较慢。</p>
+</li>
+<li><p>为了弥补读性能，可以构建索引。但是会牺牲写入性能和耗费额外空间。</p>
+</li>
+</ol>
+<p>​		存储格式一般不好动，但是索引构建与否，一般交予用户选择。</p>
+<h3 id="1-LSMTree组成"><a href="#1-LSMTree组成" class="headerlink" title="1 LSMTree组成"></a>1 LSMTree组成</h3><p>​		对于 KV 数据存储， BitCask 存储结构是：</p>
+<ol>
+<li>外存上日志片段</li>
+<li>内存中的哈希表</li>
+</ol>
+<p>​		其中外存上的数据是简单追加写而形成的，并没有按照某个字段有序。假设加一个限制，让这些文件按 key 有序。我们称这种格式为：SSTable（Sorted String Table）。</p>
+<p>​		SSTables 格式听起来很美好，但须知数据是乱序的来的，我们如何得到有序的数据文件呢？</p>
+<p>​		这可以拆解为两个小问题：1. 如何构建；2. 如何维护。</p>
+<p><strong>构建 SSTable 文件</strong>。将乱序数据在外存（磁盘 or SSD）中上整理为有序文件，是比较难的。但是在内存就方便的多。于是一个大胆的想法就形成了：</p>
+<ol>
+<li>在内存中维护一个有序结构（称为 <strong>MemTable</strong>）。红黑树、AVL 树、跳表。</li>
+<li>到达一定阈值之后全量 dump 到外存。</li>
+</ol>
+<p><strong>维护 SSTable 文件</strong>。为什么需要维护呢？首先要问，对于上述复合结构，我们怎么进行查询：</p>
+<ol>
+<li>先去 MemTable 中查找，如果命中则返回。</li>
+<li>再去 SSTable 按时间顺序由新到旧逐一查找。</li>
+</ol>
+<p>​		</p>
+<p>​		如果 SSTable 文件越来越多，则查找代价会越来越大。因此需要将多个 SSTable 文件合并，以减少文件数量，同时进行 GC，我们称之为<strong>紧缩</strong>（ Compaction）。</p>
+<p><strong>该方案的问题</strong>：如果出现宕机，内存中的数据结构将会消失。解决方法也很经典：WAL。</p>
+<p>那么，这里就可以引出LSMTree的大致结构了，</p>
+<ol>
+<li><strong>MemTable</strong>（内存表）：MemTable 是 LSM-Tree 中的主要写入结构，通常基于内存实现，例如 Skip List 或者红黑树。它用于在内存中暂存写入操作，并提供快速的插入和查找操作。当 MemTable 达到一定大小后，会触发 Flush 操作将其转换为持久化的 SSTable 文件。</li>
+<li><strong>SSTable（Sorted String Table）</strong>：SSTable 是 LSM-Tree 中的持久化存储结构，通常基于磁盘存储。它是按键有序排列的文件，每个文件包含多个键值对。SSTable 可以使用基于稀疏索引的块布局（block-based sparse indexing layout）来提高读取性能。它被设计为只读结构，一旦生成就不再修改。随着写入操作的进行，新的 SSTable 文件会不断生成。</li>
+</ol>
+<p>![](images&#x2F;myimage&#x2F;An SSTable with an in-memory index.png)</p>
+<p>大致就是上图的样子</p>
+<h3 id="3-LSMTree操作"><a href="#3-LSMTree操作" class="headerlink" title="3 LSMTree操作"></a>3 LSMTree操作</h3><p>3.1 查询和存储</p>
+<p>查询</p>
+<p>存储</p>
+<p>3.2 MenTable合并和SSTable合并</p>
+<p>内存上的日志合并</p>
+<p>磁盘上的内存合并</p>
+<h3 id="4-性能优化"><a href="#4-性能优化" class="headerlink" title="4 性能优化"></a>4 性能优化</h3><p>​		如果想让一个引擎工程上可用，还会做大量的性能优化。对于 LSM-Tree 来说，包括：</p>
+<p><strong>优化 SSTable 的查找</strong>。常用 <strong>Bloom Filter</strong>。该数据结构可以使用较少的内存为每个 SSTable 起到一些初筛的作用。</p>
+<p><strong>层级化组织 SSTable</strong>。以控制 Compaction 的顺序和时间。常见的有 size-tiered 和 leveled compaction。LevelDB 便是支持后者而得名。前者比较简单粗暴，后者性能更好，也因此更为常见。</p>
+<p>对于 RocksDB 来说，工程上的优化和使用上的优化就更多了。比如：</p>
+<ol>
+<li><p>Column Family</p>
+</li>
+<li><p>前缀压缩和过滤</p>
+</li>
+<li><p>键值分离，BlobDB</p>
+</li>
+</ol>
+<p>​		但无论有多少变种和优化，LSM-Tree 的核心思想——<strong>保存一组合理组织、后台合并的 SSTables</strong> ——简约而强大。可以方便的进行范围遍历，可以变大量随机为少量顺序。</p>
+<p>引用</p>
+<p>[1] <a class="link"   target="_blank" rel="noopener" href="https://www.cs.umb.edu/~poneil/lsmtree.pdf" >LSMtree <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>[2] <a class="link"   target="_blank" rel="noopener" href="https://ddia.qtmuniao.com/#/ch02" >第三章：存储与查询 (ddia) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>[3] <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/415799237" >深入浅出分析LSM树（日志结构合并树 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>[4] <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/351241814" >一文带你看透基于LSM-tree的NoSQL系统优化方向 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>[5] <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.07527" >LSM-based Storage Techniques: A Survey <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>[6] <a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/1365815.1365816" >Bigtable: A Distributed Storage System for Structured Data <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>[7] <a class="link"   target="_blank" rel="noopener" href="https://riak.com/assets/bitcask-intro.pdf" >bitcask <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 
             </div>
 
@@ -385,7 +520,7 @@
         <li><strong>创建于:</strong> 2023-06-27 22:38:28</li>
         
             <li>
-                <strong>更新于:</strong> 2023-06-27 22:42:54
+                <strong>更新于:</strong> 2023-06-29 01:25:53
             </li>
         
         <li>
@@ -409,6 +544,10 @@
                     
                         <li class="tag-item">
                             <a href="/tags/DB/">#DB</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/LSMTree/">#LSMTree</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -507,7 +646,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">详解LSMTree</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3LSMTree"><span class="nav-text">详解LSMTree</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3LSMTree"><span class="nav-text">详解LSMTree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%AD%98%E5%82%A8%E7%9A%84%E9%80%BB%E8%BE%91%E5%85%B3%E8%81%94"><span class="nav-text">0 数据库查询和存储的逻辑关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LSMTree%E7%BB%84%E6%88%90"><span class="nav-text">1 LSMTree组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-LSMTree%E6%93%8D%E4%BD%9C"><span class="nav-text">3 LSMTree操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-text">4 性能优化</span></a></li></ol></li></ol>
 
     </div>
 </div>
