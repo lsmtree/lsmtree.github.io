@@ -26,13 +26,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="详解LSMTree2023&#x2F;06&#x2F;27：先放着吧，后面空了写0-0 2023&#x2F;06&#x2F;29：update: 来更新咯 ，太晚了，先写到这里吧，后面lsmtree的操作和性能优化估计得好久再更了0-0 0 数据库查询和存储的逻辑关联​		首先，LSMTree一般是在数据库中用来做索引的数据结构，在讨论数据库底层如何处理查询和存储时，有个前提的关联是:使用场景 →">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/myimage/SSTable.png">
 <meta property="article:published_time" content="2023-06-27T14:38:28.000Z">
-<meta property="article:modified_time" content="2023-06-28T17:25:53.532Z">
+<meta property="article:modified_time" content="2023-06-28T17:40:49.783Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="DB">
 <meta property="article:tag" content="LSMTree">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/myimage/SSTable.png">
     
     <!--- Icon Part-->
     <link rel="icon" type="image/png" href="/images/avatar.png" sizes="192x192">
@@ -322,8 +324,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-06-29 01:25:53</span>
-            <span class="mobile">2023-06-29 01:25</span>
+            <span class="desktop">2023-06-29 01:40:49</span>
+            <span class="mobile">2023-06-29 01:40</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -471,7 +473,6 @@
 <li>先去 MemTable 中查找，如果命中则返回。</li>
 <li>再去 SSTable 按时间顺序由新到旧逐一查找。</li>
 </ol>
-<p>​		</p>
 <p>​		如果 SSTable 文件越来越多，则查找代价会越来越大。因此需要将多个 SSTable 文件合并，以减少文件数量，同时进行 GC，我们称之为<strong>紧缩</strong>（ Compaction）。</p>
 <p><strong>该方案的问题</strong>：如果出现宕机，内存中的数据结构将会消失。解决方法也很经典：WAL。</p>
 <p>那么，这里就可以引出LSMTree的大致结构了，</p>
@@ -479,7 +480,12 @@
 <li><strong>MemTable</strong>（内存表）：MemTable 是 LSM-Tree 中的主要写入结构，通常基于内存实现，例如 Skip List 或者红黑树。它用于在内存中暂存写入操作，并提供快速的插入和查找操作。当 MemTable 达到一定大小后，会触发 Flush 操作将其转换为持久化的 SSTable 文件。</li>
 <li><strong>SSTable（Sorted String Table）</strong>：SSTable 是 LSM-Tree 中的持久化存储结构，通常基于磁盘存储。它是按键有序排列的文件，每个文件包含多个键值对。SSTable 可以使用基于稀疏索引的块布局（block-based sparse indexing layout）来提高读取性能。它被设计为只读结构，一旦生成就不再修改。随着写入操作的进行，新的 SSTable 文件会不断生成。</li>
 </ol>
-<p>![](images&#x2F;myimage&#x2F;An SSTable with an in-memory index.png)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/myimage/SSTable.png"
+                     
+                ></p>
 <p>大致就是上图的样子</p>
 <h3 id="3-LSMTree操作"><a href="#3-LSMTree操作" class="headerlink" title="3 LSMTree操作"></a>3 LSMTree操作</h3><p>3.1 查询和存储</p>
 <p>查询</p>
@@ -500,8 +506,7 @@
 </li>
 </ol>
 <p>​		但无论有多少变种和优化，LSM-Tree 的核心思想——<strong>保存一组合理组织、后台合并的 SSTables</strong> ——简约而强大。可以方便的进行范围遍历，可以变大量随机为少量顺序。</p>
-<p>引用</p>
-<p>[1] <a class="link"   target="_blank" rel="noopener" href="https://www.cs.umb.edu/~poneil/lsmtree.pdf" >LSMtree <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>[1] <a class="link"   target="_blank" rel="noopener" href="https://www.cs.umb.edu/~poneil/lsmtree.pdf" >LSMtree <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>[2] <a class="link"   target="_blank" rel="noopener" href="https://ddia.qtmuniao.com/#/ch02" >第三章：存储与查询 (ddia) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>[3] <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/415799237" >深入浅出分析LSM树（日志结构合并树 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>[4] <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/351241814" >一文带你看透基于LSM-tree的NoSQL系统优化方向 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
@@ -520,7 +525,7 @@
         <li><strong>创建于:</strong> 2023-06-27 22:38:28</li>
         
             <li>
-                <strong>更新于:</strong> 2023-06-29 01:25:53
+                <strong>更新于:</strong> 2023-06-29 01:40:49
             </li>
         
         <li>
@@ -646,7 +651,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">详解LSMTree</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3LSMTree"><span class="nav-text">详解LSMTree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%AD%98%E5%82%A8%E7%9A%84%E9%80%BB%E8%BE%91%E5%85%B3%E8%81%94"><span class="nav-text">0 数据库查询和存储的逻辑关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LSMTree%E7%BB%84%E6%88%90"><span class="nav-text">1 LSMTree组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-LSMTree%E6%93%8D%E4%BD%9C"><span class="nav-text">3 LSMTree操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-text">4 性能优化</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3LSMTree"><span class="nav-text">详解LSMTree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%AD%98%E5%82%A8%E7%9A%84%E9%80%BB%E8%BE%91%E5%85%B3%E8%81%94"><span class="nav-text">0 数据库查询和存储的逻辑关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LSMTree%E7%BB%84%E6%88%90"><span class="nav-text">1 LSMTree组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-LSMTree%E6%93%8D%E4%BD%9C"><span class="nav-text">3 LSMTree操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-text">4 性能优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li></ol></li></ol>
 
     </div>
 </div>
