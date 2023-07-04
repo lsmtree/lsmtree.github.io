@@ -19,12 +19,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Lab 2 RAFTinit : 2023&#x2F;0702 23:08 lab 2 前言之 fingure2 State ​																											Raft的状态 所有服务器的持久化状态：在响应RPC之前在持久化的存储上进行更新    currentTerm 服务器已知的最新任期(在第一次启动时初始化为0)    votedFor 当前任期投给的Candidate的Id(如">
+        <meta name="description" content="Lab 2 RAFTinit : 2023&#x2F;0702 23:08 lab 2 前言之 fingure2 State ​																											Raft的状态 所有服务器的持久化状态：在响应RPC之前在持久化的存储上进行更新         currentTerm 服务器已知的最新任期(在第一次启动时初始化为0)   votedFor 当前任期投给的Candidate的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6.824 2022 lab2">
 <meta property="og:url" content="http://example.com/2023/07/02/6-824-2022-lab2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Lab 2 RAFTinit : 2023&#x2F;0702 23:08 lab 2 前言之 fingure2 State ​																											Raft的状态 所有服务器的持久化状态：在响应RPC之前在持久化的存储上进行更新    currentTerm 服务器已知的最新任期(在第一次启动时初始化为0)    votedFor 当前任期投给的Candidate的Id(如">
+<meta property="og:description" content="Lab 2 RAFTinit : 2023&#x2F;0702 23:08 lab 2 前言之 fingure2 State ​																											Raft的状态 所有服务器的持久化状态：在响应RPC之前在持久化的存储上进行更新         currentTerm 服务器已知的最新任期(在第一次启动时初始化为0)   votedFor 当前任期投给的Candidate的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/myimage/raft_fingure2_01.png">
 <meta property="og:image" content="http://example.com/images/myimage/raft_fingure2_02.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/images/myimage/raft_fingure2_04.png">
 <meta property="og:image" content="http://example.com/images/myimage/raft_fingure2_05.png">
 <meta property="article:published_time" content="2023-07-02T15:04:12.000Z">
-<meta property="article:modified_time" content="2023-07-02T15:08:24.833Z">
+<meta property="article:modified_time" content="2023-07-04T07:50:48.390Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="6.824">
 <meta property="article:tag" content="分布式">
@@ -328,8 +328,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-07-02 23:08:24</span>
-            <span class="mobile">2023-07-02 23:08</span>
+            <span class="desktop">2023-07-04 15:50:48</span>
+            <span class="mobile">2023-07-04 15:50</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -405,11 +405,15 @@
 <table>
 <thead>
 <tr>
-<th>currentTerm</th>
-<th>服务器已知的最新任期(在第一次启动时初始化为0)</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>currentTerm</strong></td>
+<td><strong>服务器已知的最新任期(在第一次启动时初始化为0)</strong></td>
+</tr>
+<tr>
 <td><strong>votedFor</strong></td>
 <td><strong>当前任期投给的Candidate的Id(如果为null就是没有投票)</strong></td>
 </tr>
@@ -422,11 +426,15 @@
 <table>
 <thead>
 <tr>
-<th>commitIndex</th>
-<th>已知被提交的最高日志的索引(初始化为0)</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>commitIndex</strong></td>
+<td><strong>已知被提交的最高日志的索引(初始化为0)</strong></td>
+</tr>
+<tr>
 <td><strong>lastApplied</strong></td>
 <td><strong>被状态机应用的最高日志的索引(初始化为0)</strong></td>
 </tr>
@@ -435,12 +443,16 @@
 <table>
 <thead>
 <tr>
-<th>nextIndex</th>
-<th>对于每一个服务器，下一个应该被发送给他们的日志的索引(初始化为Leader的最近一个日志的index的下一位)</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>matchIndex</strong></td>
+<td><strong>nextIndex[]</strong></td>
+<td><strong>对于每一个服务器，下一个应该被发送给他们的日志的索引(初始化为Leader的最近一个日志的index的下一位，若Leader的nextIndex&gt;&#x3D; Follower的nextIndex，那么Leader会减小nextIndex直到与Follower的nextIndex匹配)</strong></td>
+</tr>
+<tr>
+<td><strong>matchIndex[]</strong></td>
 <td><strong>对于每一个服务器，Leader已知的这些节点已经分别复制到的最高日志的索引(初始化为0)</strong></td>
 </tr>
 </tbody></table>
@@ -456,11 +468,15 @@
 <table>
 <thead>
 <tr>
-<th>term</th>
-<th>Candidate的term任期</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>term</strong></td>
+<td><strong>Candidate的term任期</strong></td>
+</tr>
+<tr>
 <td><strong>candidateId</strong></td>
 <td><strong>请求投票的Candidate的Id</strong></td>
 </tr>
@@ -477,11 +493,15 @@
 <table>
 <thead>
 <tr>
-<th>term</th>
-<th>当前服务器任期Term，用于Candidate更新自己的任期</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>term</strong></td>
+<td><strong>当前服务器任期Term，用于Candidate更新自己的任期</strong></td>
+</tr>
+<tr>
 <td><strong>voteGranted</strong></td>
 <td><strong>当Candidate符合条件的时候，返回true表示成功投票给它</strong></td>
 </tr>
@@ -503,25 +523,29 @@
 <table>
 <thead>
 <tr>
-<th>term</th>
-<th>Leader的当前任期</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>term</strong></td>
+<td><strong>Leader的当前任期</strong></td>
+</tr>
+<tr>
 <td><strong>leaderId</strong></td>
 <td><strong>Leader的Id，可以用于Follower记录下来，直接重定向客户端的请求</strong></td>
 </tr>
 <tr>
 <td><strong>prevLogIndex</strong></td>
-<td><strong>最新的日志的前一个日志的索引</strong></td>
+<td><strong>最新的日志的前一个日志的索引(此处最新的日志是指客户端的新请求生成的新日志)</strong></td>
 </tr>
 <tr>
 <td><strong>prevLogTrem</strong></td>
 <td><strong>preLogIndex处的日志的所属任期</strong></td>
 </tr>
 <tr>
-<td><strong>entries</strong></td>
-<td><strong>发送给Follower去存储的日志条目(空的表示当前的RPC为心跳包；可以发送多个心跳包用于提高效率)</strong></td>
+<td><strong>entries</strong>[]</td>
+<td><strong>发送给Follower去存储的日志条目(空的表示当前的RPC为心跳包；可以发送多个心跳包用于提高效率)（这里的entries[]就是新生成的日志）</strong></td>
 </tr>
 <tr>
 <td><strong>leaderCommit</strong></td>
@@ -532,11 +556,15 @@
 <table>
 <thead>
 <tr>
-<th>term</th>
-<th>服务器当前的任期，用于Leader更新自己的任期</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>term</strong></td>
+<td><strong>服务器当前的任期，用于Leader更新自己的任期</strong></td>
+</tr>
+<tr>
 <td><strong>success</strong></td>
 <td><strong>如果Follower日志中包含与 prevLogIndex 和 prevLogTerm 匹配的条目，则返回 true。</strong></td>
 </tr>
@@ -583,9 +611,9 @@
 <ul>
 <li>选举后：发送初始化的<code>AppendEntries RPC</code>空包(心跳包)到每一个服务器；并在空闲时期不断发送来防止Follower选举计时器到期,以维持自己 Leader 的身份。</li>
 <li>如果从客户端接收到一个命令：追加日志到本机日志，然后当状态机成功应用该日志之后再响应客户端的请求。</li>
-<li>如果 <code>last log index</code> &gt;&#x3D;该 <code>Follower</code> 的 <code>nextIndex</code> ：发送携带从<code>nextIndex</code>开始的日志条目的<code>AppendEntries RPC</code>请求到Follower。<ul>
+<li>如果Leader的 <code>last log index</code> &gt;&#x3D;该 <code>Follower</code> 的 <code>nextIndex</code> ：Leader发送携带从<code>nextIndex</code>开始的日志条目的<code>AppendEntries RPC</code>请求到Follower。<ul>
 <li>如果成功了：更新该 <code>Follower</code> 的<code>nextIndex</code>和<code>matchIndex</code>。(这里一定要注意并发问题，后续会提到)</li>
-<li>如果是因为日志不一致而导致的失败：递减<code>nextIndex</code>然后重试。(我们采取优化的Fast Backup，可以快速的进行日志的同步)</li>
+<li>如果是因为日志不一致而导致的失败：<strong>递减</strong><code>nextIndex</code>然后重试。(我们采取优化的Fast Backup，可以快速的进行日志的同步)</li>
 </ul>
 </li>
 <li>如果存在一个大于<code>commitIndex</code>的 N ，大多数 <code>Follower</code> 的<code>matchIndex[i] &gt; N</code>，而且索引为 N 的日志的任期等于当前任期，那么设置<code>commitIndex = N</code>。</li>
@@ -602,7 +630,7 @@
         <li><strong>创建于:</strong> 2023-07-02 23:04:12</li>
         
             <li>
-                <strong>更新于:</strong> 2023-07-02 23:08:24
+                <strong>更新于:</strong> 2023-07-04 15:50:48
             </li>
         
         <li>
